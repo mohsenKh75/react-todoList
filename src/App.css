@@ -97,16 +97,21 @@ h1 {
   color: #fff;
   background: linear-gradient(
     90deg,
-    rgba(255, 118, 20, 1) 0%,
+    rgb(191, 113, 255) 0%,
     rgba(255, 84, 17, 1) 100%
   );
 
   padding: 16px;
   border-radius: 5px;
   width: 90%;
+  transition: ease 0.4s;
+}
+.closing {
+  visibility: hidden;
+  transform: translateX(-100vw);
 }
 
-.todo-row:nth-child(4n + 1) {
+/*.todo-row:nth-child(4n + 1) {
   background: linear-gradient(
     90deg,
     rgba(93, 12, 255, 1) 0%,
@@ -128,6 +133,9 @@ h1 {
     rgba(20, 159, 255, 1) 0%,
     rgba(17, 122, 255, 1) 100%
   );
+}*/
+.trans {
+  transform: translateY(-50px);
 }
 
 .icons {

@@ -5,11 +5,24 @@ import TodoForm from "./TodoForm";
 function TodoList() {
   const [todos, setTodos] = useState([]);
 
+  const removeTodo = (id) => {
+    const close = [...todos].map((todo) => {
+      if (todo.id === id) {
+        todo.isClose = !todo.isClose;
+      }
+      return todo;
+    });
+
+    setTodos(close);
+    const removeArr = [...todos].filter((todo) => todo.id !== id);
+    setTimeout(() => setTodos(removeArr), 300);
+  };
+
   const addTodo = (todo) => {
     if (!todo.text || /^\s*$/.test(todo.text)) {
       return;
     }
-    const newTodo = [todo, ...todos];
+    const newTodo = [...todos, todo];
     setTodos(newTodo);
     console.log([todo, ...todos]);
   };
@@ -21,11 +34,6 @@ function TodoList() {
     setTodos((perv) =>
       perv.map((item) => (item.id === todoId ? newValue : item))
     );
-  };
-
-  const removeTodo = (id) => {
-    const removeArr = [...todos].filter((todo) => todo.id !== id);
-    setTodos(removeArr);
   };
 
   const completeTodo = (id) => {
