@@ -21,7 +21,7 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
     <div
       //todo.isComplete ? "todo-row complete" : "todo-row"
       className={todo.isClose ? "todo-row closing" : "todo-row"}
-      key={index}
+      key={todo.id}
     >
       <div key={todo.id} onClick={() => completeTodo(todo.id)}>
         {todo.text}
